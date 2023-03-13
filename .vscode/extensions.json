@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+      "ms-dotnettools.csharp",
+      "k--kato.docomment",
+      "fudge.auto-using",
+      "deitry.unity-debug",
+      "kleber-swf.unity-code-snippets",
+      "jorgeserrano.vscode-csharp-snippets",
+      "streetsidesoftware.code-spell-checker"
+    ]
+}
