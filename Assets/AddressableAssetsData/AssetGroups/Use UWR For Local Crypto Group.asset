@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Use UWR For Local Crypto Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Use UWR For Local Crypto Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a1da2c1465e56a141808230ec4a8ec9c
+  m_SerializeEntries:
+  - m_GUID: e8bb0b3236c8abf439d50e95f7827582
+    m_Address: UseUwrForLocalCryptoCube
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a2ac057879da28a4ca5cc77446033eb9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f36cfbc0e6397e142a07b017bfe66da4, type: 2}
+    - {fileID: 11400000, guid: 3c9b8b43f416a4d44ac4021c755b4f98, type: 2}

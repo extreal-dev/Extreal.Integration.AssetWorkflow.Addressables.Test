@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Not Use ABC Crypto Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Not Use ABC Crypto Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 16d28de8411687a4ebd430cec79a63b4
+  m_SerializeEntries:
+  - m_GUID: ed5408035afb3f94cb370a83babec289
+    m_Address: NotUseAbcCryptoCube
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a2ac057879da28a4ca5cc77446033eb9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 270733d0032bbe84aa52df2aadf0aafb, type: 2}
+    - {fileID: 11400000, guid: 3f014d66c50495c4c925ae1f6862861d, type: 2}
