@@ -396,7 +396,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
         public IEnumerator GetDownloadStatus() => UniTask.ToCoroutine(async () =>
         {
             var downloadingAssetName = default(string);
-            var downloadedStatuses = new Dictionary<string, List<NamedDownloadStatus>>();
+            var downloadedStatuses = new Dictionary<string, List<AssetDownloadStatus>>();
 
             using var onDownloadingDisposable = assetProvider.OnDownloading
                 .Subscribe(assetName => downloadingAssetName = assetName);
@@ -411,7 +411,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
                     else
                     {
                         downloadedStatuses[downloadStatus.AssetName]
-                            = new List<NamedDownloadStatus> { downloadStatus };
+                            = new List<AssetDownloadStatus> { downloadStatus };
                     }
                 });
 
@@ -421,9 +421,9 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
             Assert.That(downloadedStatuses.Keys, Does.Contain(RemotePrefix + CryptoName));
 
             var lastDownloadStatus = downloadedStatuses[RemotePrefix + CryptoName].Last();
-            Assert.That(lastDownloadStatus.DownloadedBytes, Is.EqualTo(lastDownloadStatus.TotalBytes));
-            Assert.That(lastDownloadStatus.IsDone, Is.True);
-            Assert.That(lastDownloadStatus.Percent, Is.EqualTo(1f));
+            Assert.That(lastDownloadStatus.Status.DownloadedBytes, Is.EqualTo(lastDownloadStatus.Status.TotalBytes));
+            Assert.That(lastDownloadStatus.Status.IsDone, Is.True);
+            Assert.That(lastDownloadStatus.Status.Percent, Is.EqualTo(1f));
         });
 
         [UnityTest]

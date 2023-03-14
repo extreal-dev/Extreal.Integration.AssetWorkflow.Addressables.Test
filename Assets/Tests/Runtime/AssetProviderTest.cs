@@ -20,8 +20,8 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         private AssetProvider assetProvider;
 
         private string downloadingAssetName;
-        private readonly Dictionary<string, List<NamedDownloadStatus>> downloadedStatuses
-            = new Dictionary<string, List<NamedDownloadStatus>>();
+        private readonly Dictionary<string, List<AssetDownloadStatus>> downloadedStatuses
+            = new Dictionary<string, List<AssetDownloadStatus>>();
 
         [SuppressMessage("Design", "CC0033")]
         private readonly CompositeDisposable disposables = new CompositeDisposable();
@@ -59,7 +59,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
                     else
                     {
                         downloadedStatuses[downloadStatus.AssetName]
-                            = new List<NamedDownloadStatus> { downloadStatus };
+                            = new List<AssetDownloadStatus> { downloadStatus };
                     }
                 })
                 .AddTo(disposables);
@@ -99,9 +99,9 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
             Assert.That(downloadingAssetName, Is.EqualTo(CubeName));
             Assert.That(downloadedStatuses.Keys, Does.Contain(CubeName));
             var lastDownloadStatus = downloadedStatuses[CubeName].Last();
-            Assert.That(lastDownloadStatus.DownloadedBytes, Is.EqualTo(lastDownloadStatus.TotalBytes));
-            Assert.That(lastDownloadStatus.IsDone, Is.True);
-            Assert.That(lastDownloadStatus.Percent, Is.EqualTo(1f));
+            Assert.That(lastDownloadStatus.Status.DownloadedBytes, Is.EqualTo(lastDownloadStatus.Status.TotalBytes));
+            Assert.That(lastDownloadStatus.Status.IsDone, Is.True);
+            Assert.That(lastDownloadStatus.Status.Percent, Is.EqualTo(1f));
         });
 
         [UnityTest]
@@ -111,7 +111,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
 
             Assert.That(downloadingAssetName, Is.EqualTo(CubeName));
             Assert.That(downloadedStatuses.Keys, Does.Contain(CubeName));
-            Assert.That(downloadedStatuses[CubeName].Last().Percent, Is.EqualTo(1f));
+            Assert.That(downloadedStatuses[CubeName].Last().Status.Percent, Is.EqualTo(1f));
         });
 
         [UnityTest]
@@ -126,7 +126,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
 
             Assert.That(downloadingAssetName, Is.EqualTo(CubeName));
             Assert.That(downloadedStatuses.Keys, Does.Contain(CubeName));
-            Assert.That(downloadedStatuses[CubeName].Last().Percent, Is.EqualTo(1f));
+            Assert.That(downloadedStatuses[CubeName].Last().Status.Percent, Is.EqualTo(1f));
             Assert.That(isCalled, Is.True);
         });
 
