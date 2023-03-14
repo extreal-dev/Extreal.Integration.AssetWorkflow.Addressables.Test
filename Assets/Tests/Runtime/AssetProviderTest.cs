@@ -10,6 +10,7 @@ using UnityEngine.TestTools;
 using UnityEngine.ResourceManagement.Exceptions;
 using UnityEngine.AddressableAssets;
 using System.Linq;
+using Extreal.Core.Common.Retry;
 using Extreal.Core.Logging;
 
 namespace Extreal.Integration.AssetWorkflow.Addressables.Test
@@ -32,11 +33,14 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [SetUp]
         public void Initialize()
         {
+            UnityEngine.AddressableAssets.Addressables.ResourceManager.WebRequestOverride
+                = uwr => uwr.timeout = 2;
+
             LoggingManager.Initialize(LogLevel.Debug);
 
             _ = Caching.ClearCache();
 
-            assetProvider = new AssetProvider().AddTo(disposables);
+            assetProvider = new AssetProvider(new CountingRetryStrategy(5)).AddTo(disposables);
 
             downloadingAssetName = default;
             downloadedStatuses.Clear();
@@ -59,6 +63,14 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
                     }
                 })
                 .AddTo(disposables);
+
+            _ = assetProvider.OnConnectRetrying
+                .Subscribe(retryCount => Debug.Log($"***** OnConnectRetrying: {retryCount} *****"))
+                .AddTo(disposables);
+
+            _ = assetProvider.OnConnectRetried
+                .Subscribe(result => Debug.Log($"***** OnConnectRetried: {result} *****"))
+                .AddTo(disposables);
         }
 
         [TearDown]
@@ -80,6 +92,8 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [UnityTest]
         public IEnumerator Download() => UniTask.ToCoroutine(async () =>
         {
+            LogAssert.ignoreFailingMessages = true;
+
             await assetProvider.DownloadAsync(CubeName);
 
             Assert.That(downloadingAssetName, Is.EqualTo(CubeName));
@@ -119,6 +133,8 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [UnityTest]
         public IEnumerator LoadAssetWithAssetNameSuccess() => UniTask.ToCoroutine(async () =>
         {
+            LogAssert.ignoreFailingMessages = true;
+
             using var disposableCube = await assetProvider.LoadAssetAsync<GameObject>(CubeName);
 
             Assert.That(disposableCube.Result, Is.Not.Null);
@@ -157,6 +173,8 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [UnityTest]
         public IEnumerator LoadSceneSuccess() => UniTask.ToCoroutine(async () =>
         {
+            LogAssert.ignoreFailingMessages = true;
+
             using var disposableScene = await assetProvider.LoadSceneAsync(AdditiveSceneName);
 
             Assert.That(disposableScene.Result, Is.Not.Null);

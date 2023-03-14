@@ -374,7 +374,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
                 var pathTo = pathFrom.Replace(folderFrom, folderTo);
 
                 var targetFolder = Path.GetDirectoryName(pathTo);
-                if (!Directory.Exists(targetFolder))
+                if (!Directory.Exists(targetFolder) && targetFolder != null)
                 {
                     _ = Directory.CreateDirectory(targetFolder);
                 }

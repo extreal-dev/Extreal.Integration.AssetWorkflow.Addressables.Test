@@ -1,19 +1,20 @@
-# Extreal.Integration.AssetWorkflow.Addressables.Test
+﻿# Extreal.Integration.AssetWorkflow.Addressables.Test
 
 ## How to test
 
 ### Initialization
 
-1. Enable Hosting in Addressables Hosting window (`Window > AssetManagement > Addressables > Hosting`).
-1. If Hosting is unable to be enabled, do the following.
-    1. Change Port number.
-    1. Remove all files in `ServerData/StandaloneWindows64/` and `ServerData/Save/`
+1. Build asset bundle
+    1. Remove all files except .gitignore in `ServerData/StandaloneWindows64/` and `ServerData/Save/`, If there are files in the directory.
     1. Run `Build > New Build > Test Encrypt Build Script` in Addressables Groups window (`Window > AssetManagement > Addressables > Groups`).
     1. Remove the file that starts with "acquisition".
     1. Move all files in `ServerData/StandaloneWindows64/` to `ServerData/Save/`
     1. Change the color of CubeMaterial in `Assets/Tests/Materials/`
     1. Run `Build > New Build > Test Encrypt Build Script` in Addressables Groups window again.
     1. Remove the file that starts with "acquisition".
+1. Enable Hosting in Addressables Hosting window (`Window > AssetManagement > Addressables > Hosting`).
+    1. If Hosting is unable to be enabled, Change port number and Build asset bundle again.
+1. Change `Play Mode Script` in Addressables Groups to `Use Existing Build (Windows)`.
 
 ### Code coverage measurement
 
@@ -31,9 +32,21 @@
 
 ### Watch the source code
 
-- Check the source code around the asserted log content for the following tests.
+Check the source code around the asserted log content for the following tests.
+
+- CryptoAssetBundleResourceTest
   - LoadAssetWithAssetBundleCrcDisabledCrypto
   - LoadAssetWithAssetBundleCrcEnabledExcludingCachedCrypto
   - LoadAssetWithAssetBundleCrcEnabledIncludingCachedCrypto
   - LoadAssetWithHttpRedirectLimitCrypto
   - LoadAssetWithoutHttpRedirectLimitCrypto
+
+### Retry test
+
+Since it is difficult to control the Hosting Service from the test code, retries are tested manually.
+Retry tests should be tested by executing the following test methods individually to toggle Enable of the Hosting Service.
+
+- AssetProviderTest
+  - Download
+  - LoadAssetWithAssetNameSuccess
+  - LoadSceneSuccess
