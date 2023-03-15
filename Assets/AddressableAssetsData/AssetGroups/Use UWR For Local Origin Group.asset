@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Use UWR For Local Origin Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Use UWR For Local Origin Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f3c327473dc316f4ba0b97188fbfe240
+  m_SerializeEntries:
+  - m_GUID: de72cdbbd88358b4f9e2c8e2fa9c0f06
+    m_Address: UseUwrForLocalOriginCube
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a2ac057879da28a4ca5cc77446033eb9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7bf2d0d81c8f5424986f57438047e4f6, type: 2}
+    - {fileID: 11400000, guid: 9ca62c35d93fd754fbf913f6d24df89c, type: 2}

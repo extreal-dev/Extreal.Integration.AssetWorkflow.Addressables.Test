@@ -1,0 +1,30 @@
+{
+    "name": "Extreal.Integration.AssetWorkflow.Addressables.Test",
+    "rootNamespace": "Extreal.Integration.AssetWorkflow.Addressables.Test",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Extreal.Integration.AssetWorkflow.Addressables",
+        "Extreal.Core.Logging",
+        "Extreal.Core.Common",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "UniTask",
+        "UniRx",
+        "Unity.TextMeshPro",
+        "Extreal.Framework.Analyzer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

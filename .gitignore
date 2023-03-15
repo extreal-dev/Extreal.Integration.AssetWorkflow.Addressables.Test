@@ -9,6 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Uu]serSettings/
+/[Cc]odeCoverage/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -58,3 +60,14 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# locked package file
+/Packages/packages-lock.json
+
+# Extreal framework directory
+/Packages/Extreal.*/
+
+# Settings of CodeCoverage
+/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+
+# Rider
+.idea/
