@@ -46,7 +46,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            const string bundleDirectoryPath = "Temp/com.unity.addressables/Decrypted/";
+            var bundleDirectoryPath = Application.persistentDataPath + "/com.unity.addressables/Decrypted/";
             if (Directory.Exists(bundleDirectoryPath))
             {
                 Directory.Delete(bundleDirectoryPath);
