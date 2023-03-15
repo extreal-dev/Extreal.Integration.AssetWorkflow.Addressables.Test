@@ -8,48 +8,49 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
 {
     public class FailedCryptoStreamFactory : ICryptoStreamFactory
     {
-        private const string EncryptPassword = "encrypt";
-        private const string DecryptPassword = "decrypt";
-        private const int KeyLength = 16;
+        private const string EncryptKeyPassword = "encrypt";
+        private const string DecryptKeyPassword = "decrypt";
+        private const string IvPassword = "iv";
 
         public CryptoStream CreateEncryptStream(Stream baseStream, AssetBundleRequestOptions options)
-        {
-            using var aes = CreateAesManaged(options, CryptoStreamMode.Write);
-
-            var dummy = aes.IV;
-            aes.GenerateIV();
-            var encryptStream = new CryptoStream(baseStream, aes.CreateEncryptor(), CryptoStreamMode.Write);
-            encryptStream.Write(dummy, 0, KeyLength);
-
-            return encryptStream;
-        }
+            => CreateCryptoStream(baseStream, options, CryptoStreamMode.Write);
 
         public CryptoStream CreateDecryptStream(Stream baseStream, AssetBundleRequestOptions options)
+            => CreateCryptoStream(baseStream, options, CryptoStreamMode.Read);
+
+        private static CryptoStream CreateCryptoStream
+        (
+            Stream baseStream,
+            AssetBundleRequestOptions options,
+            CryptoStreamMode mode
+        )
         {
-            using var aes = CreateAesManaged(options, CryptoStreamMode.Read);
-
-            var decryptStream = new CryptoStream(baseStream, aes.CreateDecryptor(), CryptoStreamMode.Read);
-            _ = decryptStream.Read(new byte[KeyLength], 0, KeyLength);
-
-            return decryptStream;
+            using var aes = CreateAesManaged(options, mode);
+            var cryptor = mode == CryptoStreamMode.Write ? aes.CreateEncryptor() : aes.CreateDecryptor();
+            return new CryptoStream(baseStream, cryptor, mode);
         }
 
-        [SuppressMessage("CodeCracker", "CC0022")]
+        [SuppressMessage("Usage", "CC0022")]
         private static AesManaged CreateAesManaged(AssetBundleRequestOptions options, CryptoStreamMode mode)
         {
+            const int keyLength = 128;
             var salt = Encoding.UTF8.GetBytes(options.BundleName);
-            using var key = new Rfc2898DeriveBytes
-            (
-                mode == CryptoStreamMode.Write ? EncryptPassword : DecryptPassword,
-                salt
-            );
+
+            var keyPassword = mode == CryptoStreamMode.Write ? EncryptKeyPassword : DecryptKeyPassword;
+            using var keyGen = new Rfc2898DeriveBytes(keyPassword, salt, 100, HashAlgorithmName.SHA256);
+            using var ivGen = new Rfc2898DeriveBytes(IvPassword, salt, 1, HashAlgorithmName.SHA256);
+
+            var key = keyGen.GetBytes(keyLength / 8);
+            var iv = ivGen.GetBytes(keyLength / 8);
+
             return new AesManaged
             {
-                BlockSize = 128,
-                KeySize = 128,
+                BlockSize = keyLength,
+                KeySize = keyLength,
                 Mode = CipherMode.CBC,
                 Padding = PaddingMode.PKCS7,
-                Key = key.GetBytes(KeyLength)
+                Key = key,
+                IV = iv
             };
         }
     }

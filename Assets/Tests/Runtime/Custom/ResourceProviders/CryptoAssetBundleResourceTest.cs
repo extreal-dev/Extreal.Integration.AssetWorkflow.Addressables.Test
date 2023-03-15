@@ -103,7 +103,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
 
         [UnityTest]
         public IEnumerator LoadAssetWithUncompressedCrypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + CryptoName, 165328L));
+            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + CryptoName, 165312L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithUncompressedOrigin()
@@ -120,7 +120,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
 
         [UnityTest]
         public IEnumerator LoadAssetWithLz4Crypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + CryptoName, 53920L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + CryptoName, 53904L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithLz4Origin()
@@ -137,7 +137,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
 
         [UnityTest]
         public IEnumerator LoadAssetWithLzmaCrypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + CryptoName, 32592L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + CryptoName, 32576L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithLzmaOrigin()
