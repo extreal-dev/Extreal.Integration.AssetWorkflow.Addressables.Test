@@ -10,7 +10,7 @@
     1. Remove all files except .gitignore in `ServerData/StandaloneWindows64/` and `ServerData/Save/`, If there are files in the directory.
     1. Run `Build > New Build > Test Encrypt Build Script` in Addressables Groups window (`Window > AssetManagement > Addressables > Groups`).
     1. Remove the file whose name begins with "acquisition".
-    1. Move all files in `ServerData/StandaloneWindows64/` to `ServerData/Save/`
+    1. Move all files except .gitignore in `ServerData/StandaloneWindows64/` to `ServerData/Save/`
     1. Change the color of CubeMaterial in `Assets/Tests/Materials/`
     1. Run `Build > New Build > Test Encrypt Build Script` in Addressables Groups window again.
     1. Remove the file whose name begins with "acquisition".
@@ -35,11 +35,11 @@
 Check the source code around the asserted log content for the following tests.
 
 - CryptoAssetBundleResourceTest
-  - LoadAssetWithAssetBundleCrcDisabledCrypto
-  - LoadAssetWithAssetBundleCrcEnabledExcludingCachedCrypto
-  - LoadAssetWithAssetBundleCrcEnabledIncludingCachedCrypto
-  - LoadAssetWithHttpRedirectLimitCrypto
-  - LoadAssetWithoutHttpRedirectLimitCrypto
+  - LoadAssetWithAssetBundleCrcDisabled
+  - LoadAssetWithAssetBundleCrcEnabledExcludingCached
+  - LoadAssetWithAssetBundleCrcEnabledIncludingCached
+  - LoadAssetWithHttpRedirectLimit
+  - LoadAssetWithoutHttpRedirectLimit
 
 ### Retry test
 
