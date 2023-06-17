@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb811d35fbe30e44b139192bf4921db, type: 3}
-  m_Name: BuildScriptTestEncrypt
+  m_Script: {fileID: 11500000, guid: 18bd2574e615b33429ad56879a3cca61, type: 3}
+  m_Name: BuildScriptEncryptMode
   m_EditorClassIdentifier: 
   instanceProviderType:
     m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
