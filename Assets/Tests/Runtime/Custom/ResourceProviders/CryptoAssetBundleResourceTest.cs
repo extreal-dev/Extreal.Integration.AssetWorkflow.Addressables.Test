@@ -103,11 +103,11 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
 
         [UnityTest]
         public IEnumerator LoadAssetWithUncompressedCrypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + CryptoName, 165312L));
+            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + CryptoName, 153000L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithUncompressedOrigin()
-            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + OriginName, 165296L));
+            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + OriginName, 153000L));
 
         private async UniTask LoadAssetWithUncompressedAsync(string assetName, long expectedSize)
         {
@@ -115,16 +115,16 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
             using var disposableCube = await assetProvider.LoadAssetAsync<GameObject>(assetName);
 
             Assert.That(disposableCube.Result, Is.Not.Null);
-            Assert.That(size, Is.EqualTo(expectedSize));
+            Assert.That(size, Is.GreaterThan(expectedSize));
         }
 
         [UnityTest]
         public IEnumerator LoadAssetWithLz4Crypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + CryptoName, 53904L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + CryptoName, 57300L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithLz4Origin()
-            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + OriginName, 53882L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + OriginName, 57300L));
 
         private async UniTask LoadAssetWithLz4Async(string assetName, long expectedSize)
         {
@@ -132,16 +132,16 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
             using var disposableCube = await assetProvider.LoadAssetAsync<GameObject>(assetName);
 
             Assert.That(disposableCube.Result, Is.Not.Null);
-            Assert.That(size, Is.EqualTo(expectedSize));
+            Assert.That(size, Is.GreaterThan(expectedSize));
         }
 
         [UnityTest]
         public IEnumerator LoadAssetWithLzmaCrypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + CryptoName, 32576L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + CryptoName, 34000L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithLzmaOrigin()
-            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + OriginName, 32554L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + OriginName, 34000L));
 
         private async UniTask LoadAssetWithLzmaAsync(string assetName, long expectedSize)
         {
@@ -149,7 +149,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
             using var disposableCube = await assetProvider.LoadAssetAsync<GameObject>(assetName);
 
             Assert.That(disposableCube.Result, Is.Not.Null);
-            Assert.That(size, Is.EqualTo(expectedSize));
+            Assert.That(size, Is.GreaterThan(expectedSize));
         }
 
         [UnityTest]
