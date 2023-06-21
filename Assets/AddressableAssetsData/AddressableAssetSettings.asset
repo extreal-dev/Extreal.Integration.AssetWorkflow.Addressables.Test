@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: ced28c92fa21a14418d0338a9e47fd97
-  m_CachedHash:
+  m_currentHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
-  m_BundleLocalCatalog: 0
+  m_BundleLocalCatalog: 1
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
   m_IgnoreUnsupportedFilesInBuild: 0
@@ -32,17 +32,23 @@ MonoBehaviour:
   m_ShaderBundleNaming: 0
   m_ShaderBundleCustomNaming: 
   m_MonoScriptBundleNaming: 0
+  m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
     m_Id: f0b90d877174e144bbcdd5a5e5a9214c
   m_RemoteCatalogLoadPath:
     m_Id: bf5f514f6c0a9fa4482c95e9e24e2dd1
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
+  m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: test
   m_GroupAssets:
   - {fileID: 11400000, guid: 5177815605cee5b4887260e97d11817d, type: 2}
   - {fileID: 11400000, guid: 4443699387af9814591b19f9966a7bb8, type: 2}
+  - {fileID: 11400000, guid: 5dec986efd7d96048a504abfc189fa4b, type: 2}
+  - {fileID: 11400000, guid: ab15374a8c38a19429f277239525af8e, type: 2}
+  - {fileID: 11400000, guid: 548717e88c00e9944bcb870a531a89e5, type: 2}
   - {fileID: 11400000, guid: 5e631a8c874fd4041a32163a19fcbce4, type: 2}
   - {fileID: 11400000, guid: a248bd35b75ccf64ab46b39d6d89455c, type: 2}
   - {fileID: 11400000, guid: 93cc9e064431a6c4e9157b467d1221de, type: 2}
@@ -113,14 +119,13 @@ MonoBehaviour:
   m_CertificateHandlerType:
     m_AssemblyName: 
     m_ClassName: 
-  m_ActivePlayerDataBuilderIndex: 5
+  m_ActivePlayerDataBuilderIndex: 4
   m_DataBuilders:
   - {fileID: 11400000, guid: c0af3ce4853ad9e439371dc01f117d57, type: 2}
   - {fileID: 11400000, guid: a6e44ee53d78b8542bb615754383b376, type: 2}
   - {fileID: 11400000, guid: 4129427bad72c0e4a9c3f2454120b098, type: 2}
   - {fileID: 11400000, guid: 88648f348ee1ce547a26053a608510bb, type: 2}
-  - {fileID: 11400000, guid: 04152163828c3dd4087903fcb1e10eda, type: 2}
-  - {fileID: 11400000, guid: c8df41c67d4b97f45805999df3e517a9, type: 2}
+  - {fileID: 11400000, guid: 8fee881026cbf3348b9db45e17754184, type: 2}
   m_ActiveProfileId: a7fbc08b547a88d49ac4a6433bf3d527
   m_HostingServicesManager:
     m_HostingServiceInfos:
@@ -130,7 +135,7 @@ MonoBehaviour:
         m_SerializedData:
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Int32
-          m_Data: 64502
+          m_Data: 56222
           m_Key: HostingServicePort
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Int32
@@ -142,7 +147,7 @@ MonoBehaviour:
           m_Key: ContentRoot
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Boolean
-          m_Data: False
+          m_Data: True
           m_Key: IsEnabled
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String
@@ -156,3 +161,4 @@ MonoBehaviour:
     m_NextInstanceId: 1
     m_RegisteredServiceTypeRefs:
     - UnityEditor.AddressableAssets.HostingServices.HttpHostingService, Unity.Addressables.Editor
+    m_PingTimeoutInMilliseconds: 5000

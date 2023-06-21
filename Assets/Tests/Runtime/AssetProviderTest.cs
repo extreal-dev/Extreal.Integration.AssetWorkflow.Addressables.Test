@@ -27,6 +27,9 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         private readonly CompositeDisposable disposables = new CompositeDisposable();
 
         private const string CubeName = "Cube";
+        private const string Cube1Name = "Cube1";
+        private const string Cube2Name = "Cube2";
+        private const string Cube3Name = "Cube3";
         private const string AdditiveSceneName = "AdditiveScene";
         private const string NotExistedName = "NotExisted";
 
@@ -38,7 +41,10 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
 
             LoggingManager.Initialize(LogLevel.Debug);
 
-            _ = Caching.ClearCache();
+            if (Caching.ClearCache())
+            {
+                Debug.Log("Caching Clear !!!!!!!!!!!!!!!!!!!!!!!!");
+            }
 
             assetProvider = new AssetProvider(new CountingRetryStrategy(5)).AddTo(disposables);
 
@@ -84,7 +90,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [UnityTest]
         public IEnumerator GetDownloadSize() => UniTask.ToCoroutine(async () =>
         {
-            var cubeSize = await assetProvider.GetDownloadSizeAsync(CubeName);
+            var cubeSize = await assetProvider.GetDownloadSizeAsync(Cube1Name);
 
             Assert.That(cubeSize, Is.Not.Zero);
         });
@@ -107,11 +113,11 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [UnityTest]
         public IEnumerator DownloadWithInterval() => UniTask.ToCoroutine(async () =>
         {
-            await assetProvider.DownloadAsync(CubeName, TimeSpan.FromSeconds(0.5f));
+            await assetProvider.DownloadAsync(Cube2Name, TimeSpan.FromSeconds(0.5f));
 
-            Assert.That(downloadingAssetName, Is.EqualTo(CubeName));
-            Assert.That(downloadedStatuses.Keys, Does.Contain(CubeName));
-            Assert.That(downloadedStatuses[CubeName].Last().Status.Percent, Is.EqualTo(1f));
+            Assert.That(downloadingAssetName, Is.EqualTo(Cube2Name));
+            Assert.That(downloadedStatuses.Keys, Does.Contain(Cube2Name));
+            Assert.That(downloadedStatuses[Cube2Name].Last().Status.Percent, Is.EqualTo(1f));
         });
 
         [UnityTest]
@@ -122,19 +128,17 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
             Func<UniTask> nextFunc = async () => isCalled = true;
 #pragma warning restore CS1998
 
-            await assetProvider.DownloadAsync(CubeName, nextFunc: nextFunc);
+            await assetProvider.DownloadAsync(Cube3Name, nextFunc: nextFunc);
 
-            Assert.That(downloadingAssetName, Is.EqualTo(CubeName));
-            Assert.That(downloadedStatuses.Keys, Does.Contain(CubeName));
-            Assert.That(downloadedStatuses[CubeName].Last().Status.Percent, Is.EqualTo(1f));
+            Assert.That(downloadingAssetName, Is.EqualTo(Cube3Name));
+            Assert.That(downloadedStatuses.Keys, Does.Contain(Cube3Name));
+            Assert.That(downloadedStatuses[Cube3Name].Last().Status.Percent, Is.EqualTo(1f));
             Assert.That(isCalled, Is.True);
         });
 
         [UnityTest]
         public IEnumerator LoadAssetWithAssetNameSuccess() => UniTask.ToCoroutine(async () =>
         {
-            LogAssert.ignoreFailingMessages = true;
-
             using var disposableCube = await assetProvider.LoadAssetAsync<GameObject>(CubeName);
 
             Assert.That(disposableCube.Result, Is.Not.Null);
@@ -173,8 +177,6 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [UnityTest]
         public IEnumerator LoadSceneSuccess() => UniTask.ToCoroutine(async () =>
         {
-            LogAssert.ignoreFailingMessages = true;
-
             using var disposableScene = await assetProvider.LoadSceneAsync(AdditiveSceneName);
 
             Assert.That(disposableScene.Result, Is.Not.Null);

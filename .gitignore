@@ -60,9 +60,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-# locked package file
-/Packages/packages-lock.json
-
 # Extreal framework directory
 /Packages/Extreal.*/
 
