@@ -5,6 +5,7 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Extreal.Integration.AssetWorkflow.Addressables",
+        "Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProviders",
         "Extreal.Core.Logging",
         "Extreal.Core.Common",
         "Unity.Addressables",
