@@ -15,6 +15,7 @@
     1. Run `Build > New Build > Test Encrypt Build Script` in Addressables Groups window again.
     1. Remove the file whose name begins with "acquisition".
 1. Change `Play Mode Script` in Addressables Groups to `Use Existing Build (Windows)`.
+1. If using Unity 2022.x, change `Project Settings > Player > Other Settings > Allow downloads over HTTP` to `Always allowed`
 
 ### Code coverage measurement
 

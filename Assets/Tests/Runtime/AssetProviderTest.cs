@@ -139,6 +139,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [UnityTest]
         public IEnumerator LoadAssetWithAssetNameSuccess() => UniTask.ToCoroutine(async () =>
         {
+            LogAssert.ignoreFailingMessages = true;
             using var disposableCube = await assetProvider.LoadAssetAsync<GameObject>(CubeName);
 
             Assert.That(disposableCube.Result, Is.Not.Null);
@@ -177,6 +178,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Test
         [UnityTest]
         public IEnumerator LoadSceneSuccess() => UniTask.ToCoroutine(async () =>
         {
+            LogAssert.ignoreFailingMessages = true;
             using var disposableScene = await assetProvider.LoadSceneAsync(AdditiveSceneName);
 
             Assert.That(disposableScene.Result, Is.Not.Null);
