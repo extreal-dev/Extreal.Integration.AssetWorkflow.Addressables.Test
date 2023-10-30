@@ -70,19 +70,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.18",
+      "version": "2.0.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.9"
       },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.ide.vscode": {
-      "version": "1.2.5",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
@@ -232,30 +225,30 @@
       "url": "https://packages.unity.com"
     },
     "jp.co.tis.extreal.core.common": {
-      "version": "https://github.com/extreal-dev/Extreal.Core.Common.git#1.1.0-next.4",
+      "version": "https://github.com/extreal-dev/Extreal.Core.Common.git#1.1.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "jp.co.tis.extreal.core.logging": "1.2.0-next.1",
+        "jp.co.tis.extreal.core.logging": "1.2.0",
         "com.cysharp.unitask": "2.3.3",
         "com.neuecc.unirx": "7.1.0"
       },
       "hash": "51e9c99f8813eefeaebfbaf4c9bb8f148e1059ea"
     },
     "jp.co.tis.extreal.core.logging": {
-      "version": "https://github.com/extreal-dev/Extreal.Core.Logging.git#1.1.0",
+      "version": "https://github.com/extreal-dev/Extreal.Core.Logging.git#1.2.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b45f452365e2b2111c30a767a47b6c3c339d2fc5"
+      "hash": "b8f5ac759bf34c92f5a276c76dae3a952e14f73e"
     },
     "jp.co.tis.extreal.integration.assetworkflow.addressables": {
       "version": "file:Extreal.Integration.AssetWorkflow.Addressables",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "jp.co.tis.extreal.core.logging": "1.2.0-next.1",
-        "jp.co.tis.extreal.core.common": "1.1.0-next.4",
+        "jp.co.tis.extreal.core.logging": "1.2.0",
+        "jp.co.tis.extreal.core.common": "1.1.0",
         "com.unity.addressables": "1.21.17",
         "com.cysharp.unitask": "2.3.3",
         "com.neuecc.unirx": "7.1.0"
