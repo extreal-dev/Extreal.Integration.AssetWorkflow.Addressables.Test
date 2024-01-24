@@ -234,22 +234,22 @@
       "url": "https://packages.unity.com"
     },
     "jp.co.tis.extreal.core.common": {
-      "version": "https://github.com/extreal-dev/Extreal.Core.Common.git#1.1.0",
+      "version": "https://github.com/extreal-dev/Extreal.Core.Common.git#1.2.0-next.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "jp.co.tis.extreal.core.logging": "1.2.0",
-        "com.cysharp.unitask": "2.3.3",
+        "com.cysharp.unitask": "2.5.0",
         "com.neuecc.unirx": "7.1.0"
       },
-      "hash": "9f8d573dac171ae357677ee34eaa291b0f1a18cd"
+      "hash": "cb2790a6e1b1c2049fad53abf95a05d7ec079495"
     },
     "jp.co.tis.extreal.core.logging": {
-      "version": "https://github.com/extreal-dev/Extreal.Core.Logging.git#1.2.0",
+      "version": "https://github.com/extreal-dev/Extreal.Core.Logging.git#1.3.0-next.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "460ebea3b77ee572f81bf6217c2fbb31e7a66158"
+      "hash": "8b8ce884fa002dccc44f314b21973c3f213a6262"
     },
     "jp.co.tis.extreal.integration.assetworkflow.addressables": {
       "version": "file:Extreal.Integration.AssetWorkflow.Addressables",
