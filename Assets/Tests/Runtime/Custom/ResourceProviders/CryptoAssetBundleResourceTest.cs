@@ -103,11 +103,11 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
 
         [UnityTest]
         public IEnumerator LoadAssetWithUncompressedCrypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + CryptoName, 153000L));
+            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + CryptoName, 138000L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithUncompressedOrigin()
-            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + OriginName, 153000L));
+            => UniTask.ToCoroutine(() => LoadAssetWithUncompressedAsync(UncompressedPrefix + OriginName, 138000L));
 
         private async UniTask LoadAssetWithUncompressedAsync(string assetName, long expectedSize)
         {
@@ -120,11 +120,11 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
 
         [UnityTest]
         public IEnumerator LoadAssetWithLz4Crypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + CryptoName, 57300L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + CryptoName, 43900L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithLz4Origin()
-            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + OriginName, 57300L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLz4Async(Lz4Prefix + OriginName, 43900L));
 
         private async UniTask LoadAssetWithLz4Async(string assetName, long expectedSize)
         {
@@ -137,11 +137,11 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
 
         [UnityTest]
         public IEnumerator LoadAssetWithLzmaCrypto()
-            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + CryptoName, 34000L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + CryptoName, 26100L));
 
         [UnityTest]
         public IEnumerator LoadAssetWithLzmaOrigin()
-            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + OriginName, 34000L));
+            => UniTask.ToCoroutine(() => LoadAssetWithLzmaAsync(RemotePrefix + OriginName, 25600L));
 
         private async UniTask LoadAssetWithLzmaAsync(string assetName, long expectedSize)
         {
