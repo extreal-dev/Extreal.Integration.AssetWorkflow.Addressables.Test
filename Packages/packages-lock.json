@@ -241,7 +241,7 @@
       "url": "https://packages.unity.com"
     },
     "jp.co.tis.extreal.core.common": {
-      "version": "https://github.com/extreal-dev/Extreal.Core.Common.git",
+      "version": "https://github.com/extreal-dev/Extreal.Core.Common.git#1.2.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -252,11 +252,11 @@
       "hash": "dfb03ba2e74558f3692afca1508076564faf27e1"
     },
     "jp.co.tis.extreal.core.logging": {
-      "version": "https://github.com/extreal-dev/Extreal.Core.Logging.git",
+      "version": "https://github.com/extreal-dev/Extreal.Core.Logging.git#1.2.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "946425192500e5d6ec09cc9d53b0ddfb6c5b1e22"
+      "hash": "460ebea3b77ee572f81bf6217c2fbb31e7a66158"
     },
     "jp.co.tis.extreal.integration.assetworkflow.addressables": {
       "version": "file:Extreal.Integration.AssetWorkflow.Addressables",
